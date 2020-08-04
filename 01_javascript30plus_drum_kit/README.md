@@ -33,3 +33,9 @@
 - Store references to `audio` and `keyDiv` in an object based on `code` value and use in `playSound` instead of repeatedly selecting them
 
 - Move repeated color in `key__sound` and `key__playing` into a CSS variable
+
+- Rename `playSound` to `playSoundKeyHandler`
+
+- Move audio triggers / animation into function called `playSound`
+
+- Add click handler to `keyDiv` during creation to play sound

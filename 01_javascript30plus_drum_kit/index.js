@@ -60,6 +60,8 @@ function KeyComponent(key) {
     audio.dataset.key = keyCode;
     keyDiv.append(audio);
 
+    keyDiv.addEventListener('click', () => playSound(audio, keyDiv));
+
     audioKeyRefs[keyCode] = {
       audio,
       key: keyDiv
@@ -73,10 +75,13 @@ function removeTransition(e) {
     e.target.classList.remove('key__playing');
 }
 
-function playSound(e) {
+function playSoundKeyHandler(e) {
     const { audio, key } = audioKeyRefs[e.code];
     if (!audio) return;
+    playSound(audio, key);
+}
 
+function playSound(audio, key) {
     key.classList.add('key__playing');
     audio.currentTime = 0;
     audio.play();
@@ -91,4 +96,4 @@ const keys = Array.from(document.querySelectorAll('.key'));
 keys.forEach(key => key.addEventListener('transitionend', removeTransition));
 
 // Add keydown listener to window
-window.addEventListener('keydown', playSound);
+window.addEventListener('keydown', playSoundKeyHandler);
