@@ -1,0 +1,79 @@
+html {
+    background: #018DED url(https://unsplash.it/1500/1000?image=881&blur=5);
+    background-size: cover;
+    font-family: 'helvetica neue', serif;
+    text-align: center;
+    font-size: 10px;
+}
+
+body {
+    margin: 0;
+    font-size: 2rem;
+    display: flex;
+    flex: 1;
+    min-height: 100vh;
+    align-items: center;
+}
+
+.clock {
+    --clock-dimension: 30rem;
+    width: var(--clock-dimension);
+    height: var(--clock-dimension);
+    border: 20px solid white;
+    border-radius: 50%;
+    margin: 50px auto;
+    position: relative;
+    padding: 2rem;
+    box-shadow:
+            0 0 0 4px rgba(0,0,0,0.1),
+            inset 0 0 0 3px #EFEFEF,
+            inset 0 0 10px black,
+            0 0 10px rgba(0,0,0,0.2);
+    visibility: hidden;
+}
+
+.clock__face {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform: rotate(90deg);
+}
+
+.clock__hand {
+    --transition-function: cubic-bezier(0.1, 2.7, 0.58, 1);
+    --clock-seconds-hand-length: 50%;
+    --clock-min-hand-length: 50%;
+    --clock-hour-hand-length: 35%;
+    --clock-seconds-hand-width: 2px;
+    --clock-min-hand-width: 6px;
+    --clock-hour-hand-width: 10px;
+    background: black;
+    position: absolute;
+    top: 50%;
+    transition: all 0.05s var(--transition-function);
+}
+
+.clock__hand--hour {
+    width: var(--clock-hour-hand-length);
+    left: calc(50% - var(--clock-hour-hand-length));
+    height: var(--clock-hour-hand-width);
+    transform-origin: 100% calc(100% - var(--clock-hour-hand-width));
+    transform: translateY(calc(-1 * var(--clock-hour-hand-width) / 2));
+}
+
+.clock__hand--min {
+    width: var(--clock-min-hand-length);
+    left: calc(50% - var(--clock-min-hand-length));
+    height: var(--clock-min-hand-width);
+    transform-origin: 100% calc(100% - var(--clock-min-hand-width));
+    transform: translateY(calc(-1 * var(--clock-min-hand-width) / 2));
+}
+
+.clock__hand--second {
+    width: var(--clock-seconds-hand-length);
+    left: calc(50% - var(--clock-seconds-hand-length));
+    height: var(--clock-seconds-hand-width);
+    transform-origin: 100% calc(100% - var(--clock-seconds-hand-width));
+    transform: translateY(calc(-1 * var(--clock-seconds-hand-width) / 2));
+    background-color: red;
+}
