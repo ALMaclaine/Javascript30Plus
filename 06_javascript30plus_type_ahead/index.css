@@ -65,8 +65,9 @@ input.search {
   background: linear-gradient(to top,  #ffffff 0%,#EFEFEF 100%);
 }
 
-span.population {
+.suggestion__population {
   font-size: 15px;
+  margin-top: 3px;
 }
 
 .hl {

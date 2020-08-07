@@ -17,3 +17,5 @@ of `displayMatches`
 
 - Switch to bem, rename `name` and `population` class to `suggestion__name` and `suggestion__population`, change
 references in css and js
+
+- Add `margin-top: 3px` to `suggestion__population`
