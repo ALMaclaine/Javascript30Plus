@@ -1,4 +1,4 @@
-# Javascript30Plus - 03 CSS Variables
+# Javascript30Plus - 05 Flex Panel Gallery
 
 ## Changes
 
