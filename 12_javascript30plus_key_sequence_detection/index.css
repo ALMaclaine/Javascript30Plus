@@ -1,0 +1,56 @@
+* {
+    margin: 0;
+    padding: 0;
+    user-select: none;
+}
+
+.modal-box {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.password-box {
+    margin-top: -5vh;
+    width: 100%;
+    opacity: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.password-key {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    margin: 16px;
+    font-size: 64px;
+    border-radius: 8px;
+    background: rgba(0, 0, 0, .50);
+    font-family: 'PT Serif', serif;
+}
+
+.key {
+    color: rgba(0, 0, 0, .67);
+    padding-top: 24px;
+}
+
+.active {
+    opacity: 67%;
+    transition: all .1s ease;
+}
+
+.fade-out {
+    transition: all 1s ease;
+}
