@@ -1,4 +1,4 @@
-# Javascript30Plus - 15 LocalStorage
+# Javascript30Plus - 15 Local Storage
 
 ## Changes
 
