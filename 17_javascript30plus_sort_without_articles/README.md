@@ -26,6 +26,8 @@
 
 - Make `appendBands` function
 
+- Add `generateName` function
+
 - Make `addRandomBand` lambda
 
 - Make `intervalCallback` function
