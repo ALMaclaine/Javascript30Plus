@@ -35,3 +35,7 @@
 - Add `max-height` and `overflow: scroll` to `bands` class
 
 - Start interval after a 2 seconds timeout
+
+- Replace bands with sorted bands in `sortedBands` each time for better performance since the array will be almost sorted
+
+- Add `user-select: none` universal style
