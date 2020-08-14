@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Get User Media Code Along!</title>
+    <link rel="stylesheet" href="index.css">
+    <title>Javascript30Plus - 19 Webcam Fun</title>
+</head>
+<body>
+
+<div class="photobooth">
+    <div class="controls">
+        <button id="takePhoto">Take Photo</button>
+        <button id="recordVideo">Record Video</button>
+        <div class="control__pair">
+            <div>
+                <label class="slider__label" for="red_effect">Red Effect:</label>
+                <input id="red_effect" type="checkbox" min=0 max=255 name="rmin">
+            </div>
+            <div>
+                <label class="slider__label" for="green_screen">Green Screen:</label>
+                <input id="green_screen" type="checkbox" min=0 max=255 name="rmax">
+            </div>
+        </div>
+        <div class="rgb">
+            <div class="control__pair">
+                <div>
+                    <label class="slider__label" for="rmin">Red Min:</label>
+                    <input id="rmin" type="range" min=0 max=255 name="rmin">
+                </div>
+                <div>
+                    <label class="slider__label" for="rmax">Red Max:</label>
+                    <input id="rmax" type="range" min=0 max=255 name="rmax">
+                </div>
+            </div>
+
+            <div class="control__pair">
+                <div>
+                    <label class="slider__label" for="gmin">Green Min:</label>
+                    <input id="gmin" type="range" min=0 max=255 name="gmin">
+                </div>
+                <div>
+                    <label class="slider__label" for="gmax">Green Max:</label>
+                    <input id="gmax" type="range" min=0 max=255 name="gmax">
+                </div>
+            </div>
+
+
+            <div class="control__pair">
+                <div>
+                    <label class="slider__label" for="bmin">Blue Min:</label>
+                    <input id="bmin" type="range" min=0 max=255 name="bmin">
+                </div>
+                <div>
+                    <label class="slider__label" for="bmax">Blue Max:</label>
+                    <input id="bmax" type="range" min=0 max=255 name="bmax">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <canvas class="photo"></canvas>
+    <video class="player"></video>
+    <div class="strip"></div>
+</div>
+
+<audio class="snap" src="./snap.mp3" hidden></audio>
+
+<script src="index.js"></script>
+
+</body>
+</html>
