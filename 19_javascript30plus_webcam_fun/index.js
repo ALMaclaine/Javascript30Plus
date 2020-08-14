@@ -100,10 +100,10 @@ function greenScreen(pixels) {
     });
 
     for (i = 0; i < pixels.data.length; i = i + 4) {
-        red = pixels.data[i + 0];
-        green = pixels.data[i + 1];
-        blue = pixels.data[i + 2];
-        alpha = pixels.data[i + 3];
+        let red = pixels.data[i + 0];
+        let green = pixels.data[i + 1];
+        let blue = pixels.data[i + 2];
+        let alpha = pixels.data[i + 3];
 
         if (red >= levels.rmin
             && green >= levels.gmin
