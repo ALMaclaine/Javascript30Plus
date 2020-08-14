@@ -40,3 +40,17 @@
 - Add record video button
 
 - Add record video code
+
+- Add qualifiers to r/g/b/a variables
+
+- Move levels and slider selectors out of `greenScreen` function
+
+- Add default values to levels object
+
+- Set default values on inputs while adding event listener
+
+- Add range limiting code to event listener so min can't be greater than max
+
+- Make sliders default to disabled, enable/disable them when green screen checkbox is clicked
+
+- Make canvas background black to match image output when exporting image with some portions alphaed out

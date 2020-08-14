@@ -39,13 +39,13 @@ function paintToCanvas() {
         // take the pixels out
         let pixels = ctx.getImageData(0, 0, width, height);
         // mess with them
-        if(effectOptions.red_effect) {
+        if (effectOptions.red_effect) {
             pixels = redEffect(pixels);
         }
 
         pixels = rgbSplit(pixels);
 
-        if(effectOptions.green_screen) {
+        if (effectOptions.green_screen) {
             pixels = greenScreen(pixels);
         }
         // put them back
@@ -92,12 +92,41 @@ function rgbSplit(pixels) {
     return pixels;
 }
 
-function greenScreen(pixels) {
-    const levels = {};
-
-    document.querySelectorAll('.rgb input').forEach((input) => {
-        levels[input.name] = input.value;
+const levels = {
+    rmin: 0,
+    rmax: 128,
+    gmin: 0,
+    gmax: 128,
+    bmin: 0,
+    bmax: 128
+};
+const inputs = document.querySelectorAll('.rgb input');
+inputs.forEach((input) => {
+    input.value = levels[input.name];
+    input.addEventListener('input', (e) => {
+        const name = e.target.name;
+        const color = name[0];
+        const part = name.slice(1);
+        const opposite = part === 'min' ? 'max' : 'min';
+        const value = parseInt(e.target.value);
+        const oppositeValue = levels[color + opposite];
+        if (part === 'min') {
+            if (value > oppositeValue) {
+                e.target.value = oppositeValue
+                return;
+            }
+        } else {
+            if (value < oppositeValue) {
+                e.target.value = oppositeValue
+                return;
+            }
+        }
+        levels[name] = value;
     });
+    input.disabled = true;
+});
+
+function greenScreen(pixels) {
 
     for (i = 0; i < pixels.data.length; i = i + 4) {
         let red = pixels.data[i + 0];
@@ -121,6 +150,9 @@ function greenScreen(pixels) {
 
 Array.from(document.querySelectorAll('input[type=checkbox]'))
     .map(e => e.addEventListener('change', (e) => {
+        if(e.target.id === 'green_screen') {
+            inputs.forEach(input => input.disabled = !e.target.checked);
+        }
         effectOptions[e.target.id] = e.target.checked;
     }));
 
@@ -172,7 +204,7 @@ document.querySelector('#recordVideo').addEventListener("click", function () {
         return new Promise(resolve => video.onplaying = resolve);
     }).then(() => startRecording(canvas.captureStream(60), recordingTimeMS))
         .then(recordedChunks => {
-            let recordedBlob = new Blob(recordedChunks, { type: "video/webm" });
+            let recordedBlob = new Blob(recordedChunks, {type: "video/webm"});
             const blobURL = URL.createObjectURL(recordedBlob);
             const a = document.createElement('a');
             a.href = blobURL;
