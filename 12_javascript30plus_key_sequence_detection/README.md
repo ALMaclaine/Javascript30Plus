@@ -2,7 +2,7 @@
 
 ## Changes
 
-- More script into seperate file
+- Move script into seperate file
 
 - Add index.css
 

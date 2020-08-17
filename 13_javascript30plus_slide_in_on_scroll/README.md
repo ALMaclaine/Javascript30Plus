@@ -2,7 +2,7 @@
 
 ## Changes
 
-- More script into separate file
+- Move script into separate file
 
 - Move styles into separate file
 
