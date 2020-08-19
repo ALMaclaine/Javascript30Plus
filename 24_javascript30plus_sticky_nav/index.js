@@ -4,11 +4,9 @@ let topOfNav = nav.offsetTop;
 
 function fixNav() {
     if (window.scrollY >= topOfNav) {
-        document.body.style.paddingTop = nav.offsetHeight + 'px';
-        document.body.classList.add('fixed-nav');
+        document.body.classList.add('sticky');
     } else {
-        document.body.classList.remove('fixed-nav');
-        document.body.style.paddingTop = 0;
+        document.body.classList.remove('sticky');
     }
 }
 
