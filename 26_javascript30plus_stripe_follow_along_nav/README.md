@@ -15,3 +15,10 @@
 - Use event delegation on `cool` to handle both `mouseenter` and `mouseleave`
 
 - Replace style `.cool > li` with `.cool__link`
+
+- Delete classes `dropdown1`, `dropdown3` from markup
+
+- Change `.dropdown` and `.trigger-enter .dropdown` styles to use CSS delay
+instead of JS timeout, move opacity change to `.trigger-enter`
+
+- Delete all references to `.trigger-enter-active` in script and styles
