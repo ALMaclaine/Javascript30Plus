@@ -89,7 +89,7 @@ function playSound(audio, key) {
 
 // Add keys to container
 const keysContainer = document.getElementById('keys');
-keyData.map(e => keysContainer.append(KeyComponent(e)));
+keyData.forEach(e => keysContainer.append(KeyComponent(e)));
 
 // Add transitionend listener to all key divs
 const keys = Array.from(document.querySelectorAll('.key'));
