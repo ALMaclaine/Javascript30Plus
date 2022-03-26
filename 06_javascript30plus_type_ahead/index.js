@@ -5,8 +5,8 @@ fetch(endpoint)
     .then(blob => blob.json())
     .then(data => cities.push(...data));
 
-function findMatches(wordToMatch, cities) {
-    return cities.filter(place => {
+function findMatches(wordToMatch, searchCities) {
+    return searchCities.filter(place => {
         // here we need to figure out if the city or state matches what was searched
         const regex = new RegExp(wordToMatch, 'gi');
         return place.city.match(regex) || place.state.match(regex)
@@ -60,7 +60,9 @@ function CreateHighlightSection(value, result) {
 }
 
 function clearElement(elem) {
-    while(elem.firstChild && elem.removeChild(elem.firstChild));
+    while(elem.firstChild) {
+        elem.removeChild(elem.firstChild);
+    }
 }
 
 function displayMatches() {
